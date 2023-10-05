@@ -15,58 +15,89 @@ Built a foundational SOC analyst lab, set up a C2 framework for emulating threat
 
 <h2>Walk-through:</h2>
 <h3>Part 1:</h3>
+
 <p align="center">
-Installed Sysmon in Windows Virtual Machine. Installed LimaCharlie EDR on Windows Virtual Machine- created account- created an organization- added a Windows VM Lab sensor. Disabled all Sysmon and LimaCharlie security: <br/>
+ 
+- <b>Installed Sysmon in Windows Virtual Machine.</b>
+- <b>Installed LimaCharlie EDR on Windows Virtual Machine</b>
+- <b>Created account- Created an organization</b>
+- <b>Added a Windows VM Lab sensor.</b>
+- <b>Disabled all Sysmon and LimaCharlie security</b>
+
+ <br/>
 <img src="https://imgur.com/IQpjwrO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
- Configured LimaCharlie to ship the Sysmon logs alongside its own EDR telemetry-added a new rule.
-Set up an Attack System- using IP address from Linux VM installation process – set up attacker C2 server using Sliver- a Command &  Control (C2) framework by BishopFox.
-Created a working directory for Sliver.
+
+- <b>Configured LimaCharlie to ship the Sysmon logs alongside its own EDR telemetry-added a new rule.</b>
+- <b>Set up an Attack System- using IP address from Linux VM installation process.</b>
+- <b>Set up attacker C2 server using Sliver- a Command &  Control (C2) framework by BishopFox.</b>
+- <b>Created a working directory for Sliver.</b>
+
 <br />
  <h3>Part 2:</h3>
  <p align="center">
-Generate our C2 payload-
-Launch Sliver in Linux VM
-Generate a the first C2 session payload (using own Linux VM IP address
-Download the payload from Linux VM to Windows VM (using pyhton “python3 -m http.server 80”)
-Stage the Malware – by downloading C2 payload from Linux VM to the Windows VM
+  
+- <b>Generate our C2 payload-</b>
+- <b>Launch Sliver in Linux VM</b>
+- <b>Generate a the first C2 session payload (using own Linux VM IP address</b>
+- <b>Download the payload from Linux VM to Windows VM (using pyhton “python3 -m http.server 80”)</b>
+- <b>Stage the Malware – by downloading C2 payload from Linux VM to the Windows VM</b>
+  
  <br/>
 <img src="https://imgur.com/JnEvRCj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-  Start Command and Control Session
-From the Linux VM-enable Sliver HTTP server to catch the callback 
-From Windows VM-execute payload 
-From the Linux VM-now able to interact directly with the C2 session on the Windows VM
---can examine network connections occurring on the remote system (netstat), ID running processes on remote system (ps -T)
+
+ - <b>Start Command and Control Session</b>
+ - <b>From the Linux VM-enable Sliver HTTP server to catch the callback </b>
+ - <b>From Windows VM-execute payload </b>
+ - <b>From the Linux VM-now able to interact directly with the C2 session on the Windows VM</b>
+ - <b>can examine network connections occurring on the remote system (netstat), ID running processes on remote system (ps -T)</b>
+   
 <br />
 <br />
-Observe EDR Telemetry
-Can filter timeline using my own IOCs(Indicators Of Compromise)-examine events related to implant process. <br/>
+
+- <b>Observe EDR Telemetry</b>
+- <b>Can filter timeline using my own IOCs(Indicators Of Compromise)-examine events related to implant process.</b>
+
 <img src="https://imgur.com/jjSfflf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
- Dropped into a C2 session on my victim and ran some commands within the Sliver server on my victim host -- getprivs, dump the lsass.exe process from memo(dump remote process from memory, and save it locally on my Sliver C2 server)
+Dropped into a C2 session on my victim and ran some commands within the Sliver server on my victim host 
+
+- <b>getprivs-check the privileges to make sure we can perform privileged actions on the host</b>
+- <b>Dump the lsass.exe process from memo-dump remote process from memory, and save it locally on my Sliver C2 server)</b>
+
 <br />
 <h3>Part 3:</h3>
-Detect the telemetry on LimaCharlie. Use EDR to  generate events for detecting sensitive process targeted  by credential dumping tools  <br/>
+
+- <b>Detect the telemetry on LimaCharlie.</b>
+- <b>Use EDR to  generate events for detecting sensitive process targeted  by credential dumping tools. </b>
+
 <img src="https://imgur.com/uQIotag.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Crafted a detection and response rule to alert anytime this activity occurs <br/>
+
+- <b>Crafted a detection and response rule to alert anytime this activity occurs</b>
+
 <img src="https://imgur.com/dAGNAAi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Return procdump on the Sliver sever console and check the Detection on LimaCharlie, you will see that you have detected a threat with your own detection signature.  <br/>
+
+- <b>Return procdump on the Sliver sever console and check the Detection on LimaCharlie.</b>
+- <b>Detected a threat with your own detection signature.</b>
+
 <img src="https://imgur.com/AjrIUme.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <h3>Part 4:</h3>
 Block attacks<br/>
-Drop into another C2 session on your victim running a basic command to detect and block (shell)
-Run a command to generate a telemetry (vssadmin delete shadow /all)
-Run whoami command to verify we still have active system shell
-Check LimaCharlie’s detection tab to see if default Sigma picked up the detection – check the reference URLs for command lines to detect.
-View event in Timeline to see raw event that generated this detection.
-Create a Detection & Response rule from this event.   
+
+- <b>Drop into another C2 session on your victim running a basic command to detect and block (shell)</b>
+- <b>Run a command to generate a telemetry (vssadmin delete shadow /all)</b>
+- <b>Run whoami command to verify we still have active system shell</b>
+- <b>Check LimaCharlie’s detection tab to see if default Sigma picked up the detection – check the reference URLs for command lines to detect.</b>
+- <b>View event in Timeline to see raw event that generated this detection.</b>
+- <b>Create a Detection & Response rule from this event.</b>
+
 <img src="https://imgur.com/Xlqa9c0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <!--
