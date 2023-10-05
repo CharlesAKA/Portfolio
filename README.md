@@ -11,7 +11,7 @@ Built a foundational SOC analyst lab, set up a C2 framework for emulating threat
 
 - <b>VMware Workstation</b>
 - <b>Windows VM</b>
-- <b>Ubuntu/b>
+- <b>Ubuntu</b>
 
 <h2>Walk-through:</h2>
 <h3>Part 1:</h3>
