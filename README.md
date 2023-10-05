@@ -1,20 +1,18 @@
 <h1>Built my own SOC</h1>
-
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
-
-<h2>Description</h2>
+ 
+<h2>✍🏿Description</h2>
 Built a foundational Security Operations Center lab, set up a C2 framework for emulating threat act behaviour, thrown attacks and cought the detection
 <br />
 
 
-<h2>Environments Used </h2>
+<h2>🧑🏿‍💻Environments Used </h2>
 
 - <b>VMware Workstation</b>
 - <b>Windows VM</b>
 - <b>Ubuntu</b>
 
-<h2>Walk-through:</h2>
-<h3>Part 1:</h3>
+<h2>🚶🏿Walk-through:</h2>
+<h3>Part1️⃣ :</h3>
 
 <p align="center">
  
@@ -34,7 +32,7 @@ Built a foundational Security Operations Center lab, set up a C2 framework for e
 - <b>Created a working directory for Sliver.</b>
 
 <br />
- <h3>Part 2:</h3>
+ <h3>Part2️⃣ :</h3>
  <p align="center">
   
 - <b>Generate our C2 payload-</b>
@@ -67,7 +65,7 @@ Dropped into a C2 session on my victim and ran some commands within the Sliver s
 - <b>Dump the lsass.exe process from memo-dump remote process from memory, and save it locally on my Sliver C2 server)</b>
 
 <br />
-<h3>Part 3:</h3>
+<h3>Part3️⃣ :</h3>
 
 - <b>Detect the telemetry on LimaCharlie.</b>
 - <b>Use EDR to  generate events for detecting sensitive process targeted  by credential dumping tools. </b>
@@ -88,7 +86,7 @@ Dropped into a C2 session on my victim and ran some commands within the Sliver s
 <img src="https://imgur.com/AjrIUme.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<h3>Part 4:</h3>
+<h3>Part4️⃣ :</h3>
 Block attacks<br/>
 
 - <b>Drop into another C2 session on your victim running a basic command to detect and block (shell)</b>
