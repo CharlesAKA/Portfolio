@@ -23,7 +23,7 @@ Built a foundational Security Operations Center lab, set up a C2 framework for e
 - <b>Disabled all Sysmon and LimaCharlie security</b>
 
  <br/>
-<img src="https://imgur.com/IQpjwrO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/WAZ49gV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 
 - <b>Configured LimaCharlie to ship the Sysmon logs alongside its own EDR telemetry-added a new rule.</b>
@@ -42,7 +42,7 @@ Built a foundational Security Operations Center lab, set up a C2 framework for e
 - <b>Stage the Malware – by downloading C2 payload from Linux VM to the Windows VM</b>
   
  <br/>
-<img src="https://imgur.com/JnEvRCj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/5Q2PyxT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 
  - <b>Start Command and Control Session</b>
@@ -52,12 +52,12 @@ Built a foundational Security Operations Center lab, set up a C2 framework for e
  - <b>can examine network connections occurring on the remote system (netstat), ID running processes on remote system (ps -T)</b>
    
 <br />
-<br />
+
 
 - <b>Observe EDR Telemetry</b>
 - <b>Can filter timeline using my own IOCs(Indicators Of Compromise)-examine events related to implant process.</b>
 
-<img src="https://imgur.com/jjSfflf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/QNdzu10.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 Dropped into a C2 session on my victim and ran some commands within the Sliver server on my victim host 
 
